@@ -84,7 +84,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
         public void bind (User user,int position){
 
-            //na binf
+            //na binf i
             binding.getRoot().setSelected(selectedItemPosition == position);
 
             binding.getRoot().setBackgroundColor(
