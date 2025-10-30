@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-
+    private UserAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,6 +106,15 @@ public class MainActivity extends AppCompatActivity {
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
 
+        adapter.setOnItemClickListener(position -> {
+
+
+
+            adapter.moveItemToTop(position);
+            adapter.setSelectedItemPosition(0);
+        });
+
+
 
         UserSecondAdapter adapter2 = new UserSecondAdapter(userSecondArrayList);
 
@@ -115,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        ImageView avatar = binding.avatarImage;
+        ImageView avatar = binding.avatarImage; // avataryi
         Glide.with(this)
                 .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNN-2PJ8oU9Fe6YRTUsGPlGbLSqAQfVVDb9Q&s")
                 .circleCrop()
